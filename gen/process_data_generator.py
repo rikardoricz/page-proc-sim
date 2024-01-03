@@ -24,4 +24,5 @@ for i in range(int(processes_num)):
     proc_length = random.randint(1, max_proc_length)
     data.append({"id": proc_id, "arrival_time": proc_arrival, "burst_time": proc_length})
 
-data_handler.generator_data(data, PARENT_DIR + "/input/" + output_name + ".json")
+# data_handler.generator_data(data, PARENT_DIR + "/input/" + output_name + ".json")
+data_handler.generator_data(data, output_name)

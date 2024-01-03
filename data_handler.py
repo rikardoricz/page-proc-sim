@@ -1,17 +1,22 @@
 import json
 import os
 
+def write_json(target_path, target_file, data):
+    if not os.path.exists(target_path):
+        try:
+            os.makedirs(target_path)
+        except Exception as e:
+            print(e)
+            raise
+    with open(os.path.join(target_path, target_file), "w") as f:
+        json.dump(data, f, indent=4)
+
 def read_data(data_path):
     with open(data_path) as f:
         return json.loads(f)
 
 def write_data(data, name):
-    with open("output/" + name + ".json", "w") as f:
-        json.dumps(data, f, indent=4)
+    write_json("output/", name + ".json", data)
 
-def generator_data(data, output_name):
-    with open(output_name, "w") as file:
-        json.dump(data, file, indent=4)
-        # json_object = json.dumps(data, file, indent=4)
-
-# generator_data([{"id": 1, "arrival_time": 0, "burst_time": 10},{"id": 2, "arrival_time": 2, "burst_time": 5},{"id": 3, "arrival_time": 4, "burst_time": 8},{"id": 4, "arrival_time": 6, "burst_time": 2}], "dupa")
+def generator_data(data, name):
+    write_json("input/", name + ".json", data)
