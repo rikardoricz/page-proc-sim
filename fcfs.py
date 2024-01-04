@@ -1,12 +1,15 @@
 import os
 from process import Process
 from log import Log
+from ticker import Ticker
 import data_handler
 
 class FCFS:
     def __init__(self):
         self.processes = []
         self.log = Log('fcfs')
+        self.ticker = Ticker()
+        self.time = 0
 
     # creates processes list reading processes input data from .json file located in input directory
     def create_processes(self):
@@ -45,19 +48,30 @@ class FCFS:
         return max([process.finish_time for process in self.processes])
 
     def simulate(self):
-
         self.create_processes()
         self.calculate_waiting_time()
         self.calculate_finish_time()
         avg_waiting_time = self.calculate_average_waiting_time()
         total_time = self.calculate_total_time()
+        
         print('Process\tWaiting Time\tFinish Time')
         for process in self.processes:
+            timer = 0
+            while self.ticker.time() < process.arrival():
+                self.ticker.tick()
+            while timer < process.burst():
+                self.ticker.tick()
+                timer += 1
+            self.time += timer # same as total time
             print(f'{process.id}\t\t{process.waiting_time}\t\t{process.finish_time}')
             self.log.log_process(process.id, process.waiting_time, process.finish_time)
         self.log.log_process_final(avg_waiting_time, total_time)
         print('Average waiting time: ', avg_waiting_time)
         print('Total time: ', total_time) 
+
+    def run(self):
+        fcfs = FCFS()
+        fcfs.simulate()
 
 if __name__ == "__main__":
     fcfs = FCFS()
