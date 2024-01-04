@@ -14,10 +14,14 @@ class Log:
         self.logs.append(process_log)
 
     def log_process_final(self, avg_waiting_time, total_time):
-        self.logs.append({
+        results_log = {
             'average_waiting_time': avg_waiting_time,
             'total_time': total_time
-        })
+        }
+        process_final_log = {
+            'results': results_log
+        }
+        self.logs.append(process_final_log)
         data_handler.write_data(self.logs, self.filename+"_out")
 
     #def log_pages(self, pages_part):
