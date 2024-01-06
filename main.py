@@ -15,7 +15,7 @@ def menu():
     print("6: Generate pages")
     print("7. Exit")
 
-    choice = int(input('(1-5):'))
+    choice = int(input('\n(1-7):'))
     if choice == 1:
         fcfs = ProcessSched("fcfs")
         fcfs.simulate()
