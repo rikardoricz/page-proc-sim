@@ -3,7 +3,7 @@ from page_replacement import PageReplacement
 from gen import page_data_generator, process_data_generator
 
 def menu():
-    print("\nWhat algorith you want to launch?")
+    print("\nWhat algorith you want to launch?\n")
     print("Process scheduling:")
     print("1. FCFS")
     print("2. SJF")
