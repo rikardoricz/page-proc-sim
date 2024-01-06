@@ -2,21 +2,51 @@
     {
         "id": 1,
         "arrival_time": 2,
-        "burst_time": 10
+        "burst_time": 4
     },
     {
         "id": 2,
-        "arrival_time": 0,
-        "burst_time": 5
+        "arrival_time": 5,
+        "burst_time": 1
     },
     {
         "id": 3,
-        "arrival_time": 6,
-        "burst_time": 8
+        "arrival_time": 3,
+        "burst_time": 7
     },
     {
         "id": 4,
-        "arrival_time": 4,
+        "arrival_time": 3,
+        "burst_time": 1
+    },
+    {
+        "id": 5,
+        "arrival_time": 2,
+        "burst_time": 5
+    },
+    {
+        "id": 6,
+        "arrival_time": 1,
         "burst_time": 2
+    },
+    {
+        "id": 7,
+        "arrival_time": 4,
+        "burst_time": 6
+    },
+    {
+        "id": 8,
+        "arrival_time": 3,
+        "burst_time": 7
+    },
+    {
+        "id": 9,
+        "arrival_time": 3,
+        "burst_time": 3
+    },
+    {
+        "id": 10,
+        "arrival_time": 3,
+        "burst_time": 5
     }
 ]

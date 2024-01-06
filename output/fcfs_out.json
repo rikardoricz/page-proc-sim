@@ -20,7 +20,9 @@
         "finish_time": 25
     },
     {
-        "average_waiting_time": 9.25,
-        "total_time": 25
+        "results": {
+            "average_waiting_time": 9.25,
+            "total_time": 25
+        }
     }
 ]

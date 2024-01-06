@@ -24,6 +24,11 @@ class Log:
         self.logs.append(process_final_log)
         data_handler.write_data(self.logs, self.filename+"_out")
 
-    #def log_pages(self, pages_part):
-        #TODO: write processed data to json
+    def log_page_faults(self, frame_size, page_faults):
+        page_final_log = {
+            'frame_size': frame_size,
+            'page_faults': page_faults
+        }
+        self.logs.append(page_final_log)
+        data_handler.write_data(self.logs, self.filename+"_out")
 

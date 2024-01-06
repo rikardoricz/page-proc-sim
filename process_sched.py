@@ -52,6 +52,10 @@ class ProcessSched:
         return sum([p.burst_time for p in self.processes])
         # return max([process.finish_time for process in self.processes])
 
+    #TODO
+    #def calculate_total_turnaround_time(self):
+    #    return 
+
     def simulate(self):
         self.create_processes()
         self.calculate_waiting_time()
@@ -67,21 +71,15 @@ class ProcessSched:
             while timer < process.burst():
                 self.ticker.tick()
                 timer += 1
-            self.time += timer # same as total time
+            self.time += timer
             print(f'{process.id}\t\t{process.waiting_time}\t\t{process.finish_time}')
             self.log.log_process(process.id, process.waiting_time, process.finish_time)
         self.log.log_process_final(avg_waiting_time, total_time)
         print('Average waiting time: ', avg_waiting_time)
         print('Total time: ', total_time) 
 
-    def run(self):
-        fcfs = ProcessSched("fcfs")
-        sjf = ProcessSched("sjf")
-        fcfs.simulate()
-        sjf.simulate()
-
-if __name__ == "__main__":
-    fcfs = ProcessSched("fcfs")
-    sjf = ProcessSched("sjf")
-    fcfs.simulate()
-    sjf.simulate()
+#if __name__ == "__main__":
+#    fcfs = ProcessSched("fcfs")
+#    sjf = ProcessSched("sjf")
+#    fcfs.simulate()
+#    sjf.simulate()

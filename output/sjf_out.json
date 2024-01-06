@@ -1,0 +1,28 @@
+[
+    {
+        "id": 4,
+        "waiting_time": 0,
+        "finish_time": 2
+    },
+    {
+        "id": 2,
+        "waiting_time": 2,
+        "finish_time": 7
+    },
+    {
+        "id": 3,
+        "waiting_time": 7,
+        "finish_time": 15
+    },
+    {
+        "id": 1,
+        "waiting_time": 15,
+        "finish_time": 25
+    },
+    {
+        "results": {
+            "average_waiting_time": 6.0,
+            "total_time": 25
+        }
+    }
+]
