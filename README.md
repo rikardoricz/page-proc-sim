@@ -23,20 +23,17 @@ This repo features a simulation project for page replacement algorithms (FIFO an
     ```
 4. Follow the on-screen menu to choose the algorithm or generator you want to launch:
     ```bash
-    What algorithm do you want to launch?
+    What algorithms you want to launch?
 
-    Process scheduling:
-    1. FCFS
-    2. SJF
-    Page replacement:
-    3. FIFO
-    4. LRU
+    1. FCFS and SJF - Process scheduling
+    2. FIFO and LRU - Page replacement
+
     Generators:
-    5: Generate processes
-    6: Generate pages
-    7. Exit
+    3: Generate processes
+    4: Generate pages
+    5. Exit
 
-    (1-7):
+    (1-5):
     ```
 
 ## Project structure
@@ -46,12 +43,14 @@ This repo features a simulation project for page replacement algorithms (FIFO an
 - `page_replacement.py`: Module containing implementations for page replacement algorithms (FIFO, LRU).
 - `gen/process_data_generator.py`: Module containing data generators for processes.
 - `gen/page_data_generator.py`: Module containing data generator for pages.
+- `plots/process_results_plotter.py`: Module containing results plotter for process scheduling algorithms.
+- `gen/page_results_plotter.py`: Module containing results plotter for page replacement algorithms.
 - `log.py`: Module containing logger
 - `page.py`: Page class
 - `process.py`: Process class
 - `ticker.py`: Ticker class
 - `input/`: Directory containing input json with generated data for processes and pages
-- `output/`: Directory containing results of process scheduling and page replacement algorithms
+- `output/`: Directory containing results of process scheduling and page replacement algorithms (raw data in json and plots)
 
 # License
 
