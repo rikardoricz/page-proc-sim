@@ -1,6 +1,10 @@
 [
     {
         "frame_size": 3,
-        "page_faults": 12
+        "page_faults": 10
+    },
+    {
+        "frame_size": 4,
+        "page_faults": 10
     }
 ]
