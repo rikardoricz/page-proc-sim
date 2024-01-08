@@ -14,15 +14,11 @@ class ProcessSched:
 
     # creates processes list reading processes input data from .json file located in input directory
     def create_processes(self):
-       #if data_handler.is_json(some_file):
-        #    print(f"{file_path} is a JSON file.")
         if os.path.exists("input/process_data.json"):
             data = data_handler.read_data("input/process_data.json")
         else:
             print("that file doesn't exist in the input/ directory")
             exit(-1)
-        #else:
-        #    print(f"{file_path} is not a JSON file.")
 
         for process in data:
             process_id = process['id']
@@ -52,9 +48,6 @@ class ProcessSched:
         return sum([p.burst_time for p in self.processes])
         # return max([process.finish_time for process in self.processes])
 
-    #TODO
-    #def calculate_total_turnaround_time(self):
-    #    return 
 
     def simulate(self):
         self.create_processes()

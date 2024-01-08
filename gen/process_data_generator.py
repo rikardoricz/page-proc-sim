@@ -13,12 +13,11 @@ def generate_processes():
 
     data = []
 
-    #output_name = input("Give the filename of generated process data: ")
     output_name = "process_data"
 
-    processes_num = int(input("Give the number of processes to generate: "))
-    max_proc_arrival = int(input("Give the max arrival time for the process: "))
-    max_proc_length = int(input("Give the max length of the process: "))
+    processes_num = data_handler.get_integer_input("Give the number of processes to generate: ")
+    max_proc_arrival = data_handler.get_integer_input("Give the max arrival time for the process: ")
+    max_proc_length = data_handler.get_integer_input("Give the max length of the process: ")
 
     for i in range(int(processes_num)):
         proc_id = i+1
@@ -26,5 +25,4 @@ def generate_processes():
         proc_length = random.randint(1, max_proc_length)
         data.append({"id": proc_id, "arrival_time": proc_arrival, "burst_time": proc_length})
 
-    # data_handler.generator_data(data, PARENT_DIR + "/input/" + output_name + ".json")
     data_handler.generator_data(data, output_name)

@@ -1,6 +1,14 @@
 import json
 import os
 
+def get_integer_input(prompt):
+    while True:
+        try:
+            user_input = int(input(prompt))
+            return user_input
+        except ValueError:
+            print("Invalid input. Please enter an integer.")
+
 def write_json(target_path, target_file, data):
     if not os.path.exists(target_path):
         try:

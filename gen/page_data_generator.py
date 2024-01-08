@@ -15,11 +15,11 @@ def generate_pages():
         "sizes":[0],
         "pages":[0]
     }
-    data["sizes"] = [int(x) for x in input("Slot sizes (separate by spaces): ").split()]
+    data["sizes"] = [data_handler.get_integer_input("Enter slot size: ") for _ in range(data_handler.get_integer_input("Enter the number of slots: "))]
 
-    pages_num = int(input("How many pages: "))
+    pages_num = data_handler.get_integer_input("How many pages: ")
 
-    sample_range = int(input("What should the sample range be: "))
+    sample_range = data_handler.get_integer_input("What should the sample range be: ")
 
 
     for x in range(1, int(pages_num)):
