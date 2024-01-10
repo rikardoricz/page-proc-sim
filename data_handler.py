@@ -5,9 +5,11 @@ def get_integer_input(prompt):
     while True:
         try:
             user_input = int(input(prompt))
+            if user_input <= 0:
+                raise ValueError("Input must be a positive integer.")
             return user_input
-        except ValueError:
-            print("Invalid input. Please enter an integer.")
+        except ValueError as e:
+            print(f"Invalid input: {e}")
 
 def write_json(target_path, target_file, data):
     if not os.path.exists(target_path):
