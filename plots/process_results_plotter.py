@@ -7,6 +7,15 @@ PARENT_DIR = os.path.dirname(CURRENT_DIR)
 sys.path.append(PARENT_DIR)
 import data_handler
 
+def process_algorithm_data(json_data, algorithm_name):
+    results = json_data[-1]["results"]
+    data = {
+        "Algorithm": algorithm_name,
+        "Avg Waiting Time": results["average_waiting_time"],
+        "Avg Turnaround Time": results["average_turnaround_time"]
+    }
+    return data
+
 def get_output_json(filename):
     output_file_path = "output/" + filename + ".json"
     if os.path.exists(output_file_path):
@@ -20,18 +29,29 @@ def plot_process_results():
     json_data_fcfs = get_output_json("fcfs_out")
     json_data_sjf = get_output_json("sjf_out")
 
-    avg_waiting_fcfs = json_data_fcfs[-1]["results"]["average_waiting_time"]
-    avg_waiting_sjf = json_data_sjf[-1]["results"]["average_waiting_time"]
+    fcfs_data = process_algorithm_data(json_data_fcfs, "FCFS")
+    sjf_data = process_algorithm_data(json_data_sjf, "SJF")
 
-    data_frame = pd.DataFrame({"Algorithm": ["FCFS", "SJF"], "Average Waiting Time": [avg_waiting_fcfs, avg_waiting_sjf]})
+    df_fcfs = pd.DataFrame([fcfs_data])
+    df_sjf = pd.DataFrame([sjf_data])
 
-    plt.figure(figsize=(8, 6))
-    plt.bar(data_frame["Algorithm"], data_frame["Average Waiting Time"], color=['blue', 'orange'])
-    plt.title('Average waiting time comparison')
+    df_combined = pd.concat([df_fcfs, df_sjf], ignore_index=True)
+
+    plt.figure(figsize=(10, 6))
+
+    bar_width = 0.35
+    bar_positions_waiting = range(len(df_combined['Algorithm']))
+    bar_positions_turnaround = [p + bar_width for p in bar_positions_waiting]
+
+    plt.bar(bar_positions_waiting, df_combined['Avg Waiting Time'], width=bar_width, label='Avg Waiting Time', align='center', color='blue')
+    plt.bar(bar_positions_turnaround, df_combined['Avg Turnaround Time'], width=bar_width, label='Avg Turnaround Time', align='center', color='orange')
+
     plt.xlabel('Algorithm')
-    plt.ylabel('Average Waiting Time')
+    plt.ylabel('Time')
+    plt.title('Average waiting time and average turnaround time comparison')
+    plt.xticks([p + bar_width / 2 for p in bar_positions_waiting], df_combined['Algorithm'])
+    plt.legend()
+    plt.grid(True)
 
     plt.savefig('output/process_sched_plots.png', bbox_inches='tight')
     plt.show()
-
-#plot_process_results()

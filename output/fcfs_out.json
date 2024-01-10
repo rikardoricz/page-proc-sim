@@ -1,28 +1,59 @@
 [
     {
-        "id": 2,
+        "id": 6,
         "waiting_time": 0,
-        "finish_time": 5
+        "finish_time": 2
     },
     {
         "id": 1,
-        "waiting_time": 5,
-        "finish_time": 15
+        "waiting_time": 2,
+        "finish_time": 6
     },
     {
-        "id": 4,
-        "waiting_time": 15,
-        "finish_time": 17
+        "id": 5,
+        "waiting_time": 6,
+        "finish_time": 11
     },
     {
         "id": 3,
-        "waiting_time": 17,
-        "finish_time": 25
+        "waiting_time": 11,
+        "finish_time": 18
+    },
+    {
+        "id": 4,
+        "waiting_time": 18,
+        "finish_time": 19
+    },
+    {
+        "id": 8,
+        "waiting_time": 19,
+        "finish_time": 26
+    },
+    {
+        "id": 9,
+        "waiting_time": 26,
+        "finish_time": 29
+    },
+    {
+        "id": 10,
+        "waiting_time": 29,
+        "finish_time": 34
+    },
+    {
+        "id": 7,
+        "waiting_time": 34,
+        "finish_time": 40
+    },
+    {
+        "id": 2,
+        "waiting_time": 40,
+        "finish_time": 41
     },
     {
         "results": {
-            "average_waiting_time": 9.25,
-            "total_time": 25
+            "average_waiting_time": 18.5,
+            "total_time": 41,
+            "average_turnaround_time": 22.6
         }
     }
 ]

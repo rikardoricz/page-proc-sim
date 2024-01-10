@@ -13,10 +13,11 @@ class Log:
         }
         self.logs.append(process_log)
 
-    def log_process_final(self, avg_waiting_time, total_time):
+    def log_process_final(self, avg_waiting_time, total_time, avg_tat):
         results_log = {
             'average_waiting_time': avg_waiting_time,
-            'total_time': total_time
+            'total_time': total_time,
+            'average_turnaround_time': avg_tat
         }
         process_final_log = {
             'results': results_log

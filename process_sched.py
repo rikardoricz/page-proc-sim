@@ -48,12 +48,17 @@ class ProcessSched:
         return sum([p.burst_time for p in self.processes])
         # return max([process.finish_time for process in self.processes])
 
+    def calculate_avg_tat(self):
+        finish_time_sum = sum([p.finish_time for p in self.processes])
+        return finish_time_sum / len(self.processes)
+
 
     def simulate(self):
         self.create_processes()
         self.calculate_waiting_time()
         self.calculate_finish_time()
         avg_waiting_time = self.calculate_average_waiting_time()
+        avg_tat = self.calculate_avg_tat()
         total_time = self.calculate_total_time()
 
         print('Process\tWaiting Time\tFinish Time')
@@ -67,8 +72,9 @@ class ProcessSched:
             self.time += timer
             print(f'{process.id}\t\t{process.waiting_time}\t\t{process.finish_time}')
             self.log.log_process(process.id, process.waiting_time, process.finish_time)
-        self.log.log_process_final(avg_waiting_time, total_time)
+        self.log.log_process_final(avg_waiting_time, total_time, avg_tat)
         print('Average waiting time: ', avg_waiting_time)
+        print('Average turnaround time: ', avg_tat)
         print('Total time: ', total_time) 
 
 #if __name__ == "__main__":
