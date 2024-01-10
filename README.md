@@ -5,23 +5,30 @@ This repo features a simulation project for page replacement algorithms (FIFO an
 ## Requirements
 
 - Python 3
+- pandas
+- matplotlib
 
 ## Running the Project
 
-1. Clone the repository:
+1. Install requirements
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+2. Clone the repository:
 
    ```bash
    git clone https://github.com/rikardoricz/page-proc-sim.git
    ```
-2. Navigate to the project directory:
+3. Navigate to the project directory:
     ```bash
     cd page-proc-sim
     ```
-3. Run the project:
+4. Run the project:
     ```bash
     python main.py
     ```
-4. Follow the on-screen menu to choose the algorithm or generator you want to launch:
+5. Follow the on-screen menu to choose the algorithm or generator you want to launch:
     ```bash
     What algorithms you want to launch?
 
@@ -44,7 +51,7 @@ This repo features a simulation project for page replacement algorithms (FIFO an
 - `gen/process_data_generator.py`: Module containing data generators for processes.
 - `gen/page_data_generator.py`: Module containing data generator for pages.
 - `plots/process_results_plotter.py`: Module containing results plotter for process scheduling algorithms.
-- `gen/page_results_plotter.py`: Module containing results plotter for page replacement algorithms.
+- `plots/page_results_plotter.py`: Module containing results plotter for page replacement algorithms.
 - `log.py`: Module containing logger
 - `page.py`: Page class
 - `process.py`: Process class
