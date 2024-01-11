@@ -6,6 +6,7 @@ PARENT_DIR = os.path.dirname(CURRENT_DIR)
 sys.path.append(PARENT_DIR)
 import data_handler
 
+# generowanie losowo czasu nadejscia procesu oraz dlugosci trwania procesu dla zadanej ilosci procesow, maksymalnego czasu wykonania i nadejscia
 def generate_processes():
 
     seed = 273142

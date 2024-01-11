@@ -1,8 +1,9 @@
+# klasa Process z polami: id, 
 class Process:
     def __init__(self, id, arrival_time, burst_time):
         self.id = id
-        self.arrival_time = arrival_time
-        self.burst_time = burst_time
+        self.arrival_time = arrival_time # czas nadejscia
+        self.burst_time = burst_time # czas wykonania
         self.waiting_time = 0
         self.finish_time = 0
 

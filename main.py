@@ -5,9 +5,11 @@ from page_replacement import PageReplacement
 from gen import page_data_generator, process_data_generator
 from plots import page_results_plotter, process_results_plotter
 
+# czyszczenie konsoli
 def clear_console():
     os.system('cls' if os.name == 'nt' else 'clear')
 
+# funkcja glowna programu z menu do wyboru
 def menu():
     while(True):
         print("\nWhat algorithms you want to launch?\n")
@@ -42,5 +44,6 @@ def menu():
             clear_console()
             print("Wrong input. Please enter a number between 1 and 5.")
 
+# wywolanie funkcji main
 if __name__ == "__main__":
     menu()

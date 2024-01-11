@@ -7,6 +7,7 @@ PARENT_DIR = os.path.dirname(CURRENT_DIR)
 sys.path.append(PARENT_DIR)
 import data_handler
 
+# funkcja tworzaca latwiejsza do odczytania strukture danych na podstawie danych json i nazwy algorytmu do pozniejszego narysowania wykresu
 def process_algorithm_data(json_data, algorithm_name):
     results = json_data[-1]["results"]
     data = {
@@ -16,6 +17,7 @@ def process_algorithm_data(json_data, algorithm_name):
     }
     return data
 
+# funkcja zwraca dane json korzystajac z modulu data_handler, a przed tym sprawdza czy plik istnieje w katalogu output
 def get_output_json(filename):
     output_file_path = "output/" + filename + ".json"
     if os.path.exists(output_file_path):
@@ -25,6 +27,7 @@ def get_output_json(filename):
         print("That file doesn't exist in the output/ directory")
         exit(-1)
 
+# funkcja rysujaca wykres dla rezultatow wykonania algorytmow planowania czasu procesora. Wykres jest eksportowany do katalogu output/
 def plot_process_results():
     json_data_fcfs = get_output_json("fcfs_out")
     json_data_sjf = get_output_json("sjf_out")

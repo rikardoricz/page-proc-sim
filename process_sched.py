@@ -12,7 +12,7 @@ class ProcessSched:
         self.ticker = Ticker()
         self.time = 0
 
-    # creates processes list reading processes input data from .json file located in input directory
+    # tworzenie procesow - odczyt z pliku input/process_data.json i dodanie danych o procesach do listy obiektow procesow
     def create_processes(self):
         if os.path.exists("input/process_data.json"):
             data = data_handler.read_data("input/process_data.json")
@@ -27,32 +27,37 @@ class ProcessSched:
             self.processes.append(Process(process_id, arrival_time, burst_time))
 
         if self.algo_name == "fcfs":
-            self.processes.sort(key=lambda p: p.arrival_time)
+            self.processes.sort(key=lambda p: p.arrival_time) # sortowanie listy procesow po czasie nadejscia
         else:
-            self.processes.sort(key=lambda p: p.burst_time)
+            self.processes.sort(key=lambda p: p.burst_time) # sortowanie listy procesow po czasie wykonania
 
+    # liczenie czasu oczekiwania dla kazdego procesu
     def calculate_waiting_time(self):
         for i in range(1, len(self.processes)):
             self.processes[i].waiting_time = self.processes[i-1].burst_time + self.processes[i-1].waiting_time
 
-    # maybe change name of method below to turnaround_time instead of finish_time?
+    # liczenie czasu ukonczenia wykonywania procesu
     def calculate_finish_time(self):
         for i in range(len(self.processes)):
             self.processes[i].finish_time = self.processes[i].burst_time + self.processes[i].waiting_time
     
+    # liczenie sredniego czasu oczekiwania procesow
     def calculate_average_waiting_time(self):
         total_waiting_time = sum([p.waiting_time for p in self.processes])
         return total_waiting_time / len(self.processes)
 
+    # liczenie calkowitego czasu 
     def calculate_total_time(self):
         return sum([p.burst_time for p in self.processes])
         # return max([process.finish_time for process in self.processes])
 
+    # liczenie sredniego czasu realizacji procesow
     def calculate_avg_tat(self):
         finish_time_sum = sum([p.finish_time for p in self.processes])
         return finish_time_sum / len(self.processes)
 
 
+    # symulacja algorytmow planowania czasu procesora
     def simulate(self):
         self.create_processes()
         self.calculate_waiting_time()
@@ -77,8 +82,3 @@ class ProcessSched:
         print('Average turnaround time: ', avg_tat)
         print('Total time: ', total_time) 
 
-#if __name__ == "__main__":
-#    fcfs = ProcessSched("fcfs")
-#    sjf = ProcessSched("sjf")
-#    fcfs.simulate()
-#    sjf.simulate()

@@ -5,6 +5,7 @@ class Log:
         self.filename = algorithm
         self.logs = []
 
+    # logowanie rezultatow algorytmow planowania czasu procesora
     def log_process(self, id, waiting_time, finish_time):
         process_log = {
             'id': id,
@@ -13,6 +14,7 @@ class Log:
         }
         self.logs.append(process_log)
 
+    # logowanie rezultatow algorytmow planowania czasu procesora (final)
     def log_process_final(self, avg_waiting_time, total_time, avg_tat):
         results_log = {
             'average_waiting_time': avg_waiting_time,
@@ -25,6 +27,7 @@ class Log:
         self.logs.append(process_final_log)
         data_handler.write_data(self.logs, self.filename+"_out")
 
+    # logowanie rezultatow algorytmow zastepowania stron
     def log_page_faults(self, frame_size, page_faults):
         page_final_log = {
             'frame_size': frame_size,

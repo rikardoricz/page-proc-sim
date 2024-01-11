@@ -1,10 +1,22 @@
 [
     {
         "frame_size": 3,
-        "page_faults": 9
+        "page_faults": 93
     },
     {
-        "frame_size": 4,
-        "page_faults": 9
+        "frame_size": 5,
+        "page_faults": 90
+    },
+    {
+        "frame_size": 10,
+        "page_faults": 84
+    },
+    {
+        "frame_size": 20,
+        "page_faults": 64
+    },
+    {
+        "frame_size": 30,
+        "page_faults": 51
     }
 ]

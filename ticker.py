@@ -1,3 +1,4 @@
+# klasa ticker - do obslugi licznika czasu
 class Ticker:
     def __init__(self):
         self.time_elapsed = 0

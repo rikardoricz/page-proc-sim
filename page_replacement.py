@@ -4,6 +4,7 @@ from page import Page
 from log import Log
 from collections import deque
 
+# klasa odpowiedzialna za algorytmy zastepowania stron
 class PageReplacement:
     def __init__(self, algo_name):
         self.algo_name = algo_name
@@ -11,6 +12,7 @@ class PageReplacement:
         self.pages = []
         self.frame_sizes = []
 
+    # tworzenie stron - odczyt z pliku input/page_data.json i dodanie dnaych do strukur (pól klasy) pages i frame_sizes
     def create_pages(self):
         if os.path.exists("input/page_data.json"):
             data = data_handler.read_data("input/page_data.json")
@@ -24,6 +26,7 @@ class PageReplacement:
         for page in data['pages']:
             self.pages.append(Page(page))
 
+    # symulacja algorytmu fifo. Zwraca page_faults (ilosc zastapien stron) i page_hits
     def fifo(self, capacity):
         queue = deque()
         page_faults = 0
@@ -38,6 +41,7 @@ class PageReplacement:
                 page_hits += 1
         return page_faults, page_hits
 
+    # symulacja algorytmu lru. Zwraca page_faults (ilosc zastapien stron) i page_hits
     def lru(self, capacity):
         queue = []
         page_faults = 0
@@ -57,6 +61,7 @@ class PageReplacement:
         return page_faults, page_hits
 
 
+    # symulacja obu algorytmow - fifo i lru i zapisywanie za pomoca loggera
     def simulate(self):
         self.create_pages()
 
@@ -73,8 +78,3 @@ class PageReplacement:
                 print('LRU faults:', page_faults)
                 print('LRU hits:', page_hits)
 
-#if __name__ == "__main__":
-#    fifo = PageReplacement("fifo")
-#    lru = PageReplacement("lru")
-#    fifo.simulate()
-#    lru.simulate()

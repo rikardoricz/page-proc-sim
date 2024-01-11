@@ -6,6 +6,7 @@ parent_dir = os.path.abspath(os.path.join(dir_path, os.pardir))
 sys.path.append(parent_dir)
 import data_handler
 
+# generowanie losowo podanej przez uzytkownika ilosci stron na podstawie podanego zakresu stron i zapis tych danych do pliku przy wykorzystaniu modulu data_handler
 def generate_pages():
     seed = 273142
     random.seed(seed)
